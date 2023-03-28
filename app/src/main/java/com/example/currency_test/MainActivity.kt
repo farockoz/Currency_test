@@ -3,6 +3,7 @@ package com.example.currency_test
 import android.app.DownloadManager.Request
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
@@ -21,7 +22,10 @@ class MainActivity : AppCompatActivity() {
                 "&currencies=$first_curr%2C$second_curr%2C$third_curr&base_currency=$base_curr"
         val queue = Volley.newRequestQueue(this)
         val stringRequest = StringRequest(com.android.volley.Request.Method.GET,
-            url, {respone ->}, {
+            url, {response ->
+                Log.d("My Log", "Response: $response")
+            }, {
+                Log.d("My Log", "Volley error: $it")
 
             }
         )
