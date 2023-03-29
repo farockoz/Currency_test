@@ -4,8 +4,11 @@ import android.app.DownloadManager.Request
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 const val API_KEY = "P3MO6TiVOppzktqOzMz0QpoVZ2koxq7idlxCkSAo"
 class MainActivity : AppCompatActivity() {
@@ -14,7 +17,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.curr_main, Currency_fragment.newInstance())
+            .replace(R.id.fragment_1, Currency_fragment.newInstance())
+            .commit()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_2, Stonks_main.newInstance())
             .commit()
     }
     private fun GetResult(first_curr: String, second_curr: String, third_curr: String, base_curr:String){
@@ -23,7 +30,9 @@ class MainActivity : AppCompatActivity() {
         val queue = Volley.newRequestQueue(this)
         val stringRequest = StringRequest(com.android.volley.Request.Method.GET,
             url, {response ->
-                Log.d("My Log", "Response: $response")
+                val currency_intime = JSONObject(response)
+                print(currency_intime)
+
             }, {
                 Log.d("My Log", "Volley error: $it")
 
