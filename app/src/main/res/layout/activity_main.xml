@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:name="com.example.currency_test.Currency_fragment" />
+        android:name="com.example.currency_test.Currency_fragment"
+        tools:layout="@layout/fragment_currency_fragment" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
