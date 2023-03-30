@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONObject
@@ -24,14 +25,14 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_2, Stonks_main.newInstance())
             .commit()
     }
-    private fun GetResult(first_curr: String, second_curr: String, third_curr: String, base_curr:String){
+    //val textView = findViewById<TextView>(R.id.text_main)
+    private fun GetResult(first_curr: String = "EUR", base_curr:String = "USD"){
         val url = "https://api.currencyapi.com/v3/latest?apikey=$API_KEY" +
-                "&currencies=$first_curr%2C$second_curr%2C$third_curr&base_currency=$base_curr"
+                "&currencies=$first_curr&base_currency=$base_curr"
         val queue = Volley.newRequestQueue(this)
         val stringRequest = StringRequest(com.android.volley.Request.Method.GET,
-            url, {response ->
-                val currency_intime = JSONObject(response)
-                print(currency_intime)
+            url, {response -> Log.d("My log", response)
+                 /*textView.text = "Response is: ${response}"*/
 
             }, {
                 Log.d("My Log", "Volley error: $it")
