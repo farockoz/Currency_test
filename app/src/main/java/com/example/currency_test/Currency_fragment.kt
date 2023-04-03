@@ -12,7 +12,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
 
-class Currency_fragment : Fragment(), View.OnClickListener{
+class Currency_fragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
 
     }
@@ -21,19 +21,23 @@ class Currency_fragment : Fragment(), View.OnClickListener{
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val button = view?.findViewById<Button>(R.id.button_1)
-        button?.setOnClickListener{getResult("EUR", "USD")
-
+        val view = inflater.inflate(R.layout.fragment_currency_fragment, container, false)
+        val button = view.findViewById<Button>(R.id.button_1)
+        button.setOnClickListener {
+            getResult("USD", "EUR")
         }
-        return inflater.inflate(R.layout.fragment_currency_fragment, container, false)
+        return view
+
     }
-    private fun getResult(first_curr: String, base_curr:String){
+
+    private fun getResult(first_curr: String, base_curr: String) {
         val url = "https://api.currencyapi.com/v3/latest?apikey=$API_KEY" +
                 "&currencies=$first_curr&base_currency=$base_curr"
-        val queue = Volley.newRequestQueue(context)
+        val queue = Volley.newRequestQueue(requireContext())
         val stringRequest = StringRequest(
             Request.Method.GET,
-            url, {response -> Log.d("My log", "$response")
+            url, { response ->
+                Log.d("My log", "$response")
                 /*textView.text = "Response is: ${response}"*/
 
             }, {
