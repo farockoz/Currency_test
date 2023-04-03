@@ -10,7 +10,6 @@
         android:id="@+id/button_1"
         android:layout_height="wrap_content"
         android:text="Result"
-        android:onClick="GetResult"
         />
 
     <!-- TODO: Update blank fragment layout -->
