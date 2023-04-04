@@ -11,11 +11,9 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
+const val API_KEY = "P3MO6TiVOppzktqOzMz0QpoVZ2koxq7idlxCkSAo"
+class Currency_fragment : Fragment() {
 
-class Currency_fragment : Fragment(), View.OnClickListener {
-    override fun onClick(v: View?) {
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
