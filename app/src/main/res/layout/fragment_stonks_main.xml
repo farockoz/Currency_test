@@ -9,6 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/currency_main" />
+        android:text="@string/currency_main"
+        android:textSize="20sp"/>
 
 </FrameLayout>
