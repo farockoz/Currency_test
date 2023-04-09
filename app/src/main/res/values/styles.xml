@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Request_style">
+        <item name="android:paddingTop">@dimen/small_padding</item>
+    </style>
+</resources>
