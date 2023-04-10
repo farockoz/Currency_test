@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_1"
-        android:name="com.example.currency_test.Currency_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="400dp"
@@ -19,6 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
+        app:navGraph = "@navigation/navigation"
+        app:defaultNavHost ="true"
         tools:layout="@layout/fragment_currency_fragment" />
 
     <androidx.fragment.app.FragmentContainerView
